@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "SlopStopper",
+  "version": "0.1.0",
+  "description": "Covers YouTube thumbnails of videos YouTube labels as made with AI, so you can spot them before clicking.",
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "permissions": ["storage"],
+  "host_permissions": ["https://www.youtube.com/*"],
+  "content_scripts": [
+    {
+      "matches": ["https://www.youtube.com/*"],
+      "js": ["src/content.js"],
+      "css": ["src/content.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "slopstopper@extension",
+      "strict_min_version": "121.0"
+    }
+  }
+}

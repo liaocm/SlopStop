@@ -1,0 +1,42 @@
+.slopstopper-host {
+  position: relative !important;
+}
+
+.slopstopper-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: inherit;
+  background: rgba(0, 0, 0, 0.6);
+  /* Let clicks and hovers reach the video link underneath. */
+  pointer-events: none;
+  /* Size the label relative to the thumbnail, whatever its size. */
+  container-type: size;
+}
+
+.slopstopper-overlay > span {
+  color: #fff;
+  font-family: "YouTube Sans", Roboto, Arial, sans-serif;
+  font-weight: 900;
+  /* ~85% of the width on 16:9 thumbnails; capped by height on Shorts. */
+  font-size: min(23cqw, 60cqh);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+  text-shadow: 0 0.04em 0.12em rgba(0, 0, 0, 0.6);
+  text-align: center;
+  user-select: none;
+}
+
+/* Vertical (Shorts) thumbnails: stack "AI" over "slop" so it can be bigger. */
+@container (aspect-ratio < 1) {
+  .slopstopper-overlay > span {
+    font-size: min(40cqw, 30cqh);
+    line-height: 0.95;
+    white-space: normal;
+  }
+}
