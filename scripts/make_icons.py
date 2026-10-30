@@ -43,11 +43,23 @@ def draw():
     return img
 
 
+def render(big, size):
+    """Small sizes are full-bleed for legibility. The 128px icon doubles as the
+    Chrome Web Store icon, which wants 96px of artwork with 16px of padding."""
+    if size < 128:
+        return big.resize((size, size), Image.LANCZOS)
+    art = round(size * 96 / 128)
+    canvas = Image.new("RGBA", (size, size), (0, 0, 0, 0))
+    offset = (size - art) // 2
+    canvas.paste(big.resize((art, art), Image.LANCZOS), (offset, offset))
+    return canvas
+
+
 def main():
     OUT.mkdir(exist_ok=True)
     big = draw()
     for size in SIZES:
-        big.resize((size, size), Image.LANCZOS).save(OUT / f"icon{size}.png")
+        render(big, size).save(OUT / f"icon{size}.png")
         print(f"wrote icons/icon{size}.png")
 
 

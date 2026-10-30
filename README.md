@@ -12,6 +12,8 @@ It works on any `www.youtube.com` page that lists videos, including Home,
 Subscriptions, search results, the watch-page sidebar, and channel pages. It
 handles both regular videos and Shorts.
 
+![Search results with AI-labeled videos covered by "AI slop"](store/screenshots/1-search-results.png)
+
 ## Install (unpacked)
 
 **Chrome, Edge, Brave, Arc, and other Chromium browsers**
@@ -27,8 +29,11 @@ handles both regular videos and Shorts.
 1. Open `about:debugging#/runtime/this-firefox`.
 2. Click **Load Temporary Add-on…** and pick `manifest.json`.
 
-To build a zip for store upload, run `scripts/package.sh`. The zip is written
-to `dist/`.
+## Publishing
+
+`scripts/package.sh` builds the Chrome Web Store zip into `dist/`. The same zip
+works for Edge Add-ons. [`store/LISTING.md`](store/LISTING.md) has the listing
+text, the privacy-tab answers, and the list of images to upload.
 
 ## How it works
 
@@ -59,6 +64,8 @@ HTTP 429.
 - Requests are sent **without cookies** (`credentials: 'omit'`), so they're
   anonymous. They don't touch your account or watch history.
 - Nothing is collected or sent anywhere else.
+
+See [PRIVACY.md](PRIVACY.md) for the full policy.
 
 ## Limitations
 
