@@ -34,6 +34,7 @@ WHERE IT WORKS
 • Search results
 • Channel pages
 • The sidebar next to the video you're watching
+• The end-of-video screen and "Up next" card
 • Regular videos and Shorts
 
 HOW IT WORKS

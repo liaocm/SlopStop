@@ -30,11 +30,24 @@
   const CACHE_PREFIX = 'v:';
   const FALLBACK_CLIENT_VERSION = '2.20261029.01.00';
 
-  // Thumbnail hosts across YouTube's current (view-model) and legacy layouts.
-  const THUMBNAIL_SELECTOR = 'yt-thumbnail-view-model, ytd-thumbnail';
+  // Thumbnail hosts across YouTube's current (view-model) and legacy layouts,
+  // plus the player's own suggestions: the end-of-video grid (two variants),
+  // the autoplay "Up next" card, and creators' end cards.
+  const THUMBNAIL_SELECTOR = [
+    'yt-thumbnail-view-model',
+    'ytd-thumbnail',
+    '.ytp-modern-videowall-still-image',
+    '.ytp-videowall-still-image',
+    '.ytp-autonav-endscreen-upnext-thumbnail',
+    '.ytp-ce-video .ytp-ce-covering-overlay',
+  ].join(', ');
   // Playlists and mixes link to their first video; don't judge them by it.
-  const COLLECTION_SELECTOR =
-    'yt-collection-thumbnail-view-model, ytd-playlist-thumbnail';
+  const COLLECTION_SELECTOR = [
+    'yt-collection-thumbnail-view-model',
+    'ytd-playlist-thumbnail',
+    '[data-is-list="true"]',
+    '[data-is-mix="true"]',
+  ].join(', ');
 
   const OVERLAY_CLASS = 'slopstopper-overlay';
   const HOST_CLASS = 'slopstopper-host';

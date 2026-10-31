@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "SlopStopper",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Covers YouTube thumbnails of videos YouTube labels as made with AI, so you can spot them before clicking.",
   "homepage_url": "https://github.com/liaocm/SlopStop",
   "icons": {

@@ -9,8 +9,9 @@ description) after you open the video. SlopStopper looks those labels up for
 every thumbnail on the page and marks the ones that have them.
 
 It works on any `www.youtube.com` page that lists videos, including Home,
-Subscriptions, search results, the watch-page sidebar, and channel pages. It
-handles both regular videos and Shorts.
+Subscriptions, search results, the watch-page sidebar, and channel pages, as
+well as the player's end-of-video suggestions. It handles both regular videos
+and Shorts.
 
 ![Search results with AI-labeled videos covered by "AI slop"](store/screenshots/1-search-results.png)
 
@@ -39,7 +40,8 @@ text, the privacy-tab answers, and the list of images to upload.
 
 `src/content.js` runs on YouTube pages and does the following:
 
-1. Finds every video thumbnail (`yt-thumbnail-view-model` / `ytd-thumbnail`)
+1. Finds every video thumbnail (`yt-thumbnail-view-model` / `ytd-thumbnail`,
+   plus the player's end-screen grid, "Up next" card, and creator end cards)
    and reads the video ID from its link (`/watch?v=…` or `/shorts/…`).
    Playlist and mix thumbnails are skipped.
 2. When a thumbnail comes within about one screen of the viewport, it asks
